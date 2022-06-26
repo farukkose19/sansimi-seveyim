@@ -1,0 +1,6 @@
+.background {
+  background-image: url("../assets/background2.jpeg");
+  background-color: #cccccc;
+  filter: grayscale(40%);
+  opacity: 0.5;
+}

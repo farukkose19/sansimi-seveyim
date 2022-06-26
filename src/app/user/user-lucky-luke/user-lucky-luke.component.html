@@ -1,0 +1,14 @@
+<div style="position: absolute; right: 0; top: 0;">
+  Soru Sayısı: {{group?.questionList?.length}}
+</div>
+
+<div class="row align-items-center mt-5 justify-content-center">
+  <div class="col-6 d-flex justify-content-center mt-5 bg-white shadow p-5">
+    {{randomQuestion.question}}
+  </div>
+  <div class="col-12 d-flex justify-content-center mt-5">
+    <button type="button" class="btn dark-green-background" style="color: white"
+            onclick="this.blur();" (click)=" getRandomQuestion();">Şansımı Seveyim</button>
+  </div>
+</div>
+

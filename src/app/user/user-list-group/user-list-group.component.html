@@ -1,7 +1,13 @@
-<div class="mt-5">
+<div class="mt-4">
+  <div style="position: absolute; top: 0; right: 0">
+    <button class="btn dark-green-background" style="color: white">
+      <fa-icon class="fa-xl" [icon]="faCirclePlus"></fa-icon>
+      Ekle
+    </button>
+  </div>
   <div class="row">
-    <div *ngFor="let group of groupList" class="col-4 col-sm-1 col-md-2 col-lg-4 col-xl-2">
-      <div class="card shadow">
+    <div *ngFor="let group of groupList" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4">
+      <div class="card shadow" [routerLink]="'user-lucky-luke/' + group.id">
         <div class="card-body">
           <h5 class="card-title">{{ group.groupName }}</h5>
           <div class="card-subtitle mb-3 text-muted" style="font-size: 0.8em; width: 100%;">
@@ -14,11 +20,20 @@
           </div>
           <br>
           <div class="card-text">
-            <div *ngFor="let word of group.questionList.slice(0,2)">
-              <ul>
-                <li class="text-muted" style="margin: 0; padding: 0">{{word.question}}</li>
-              </ul>
-            </div>
+            <ul>
+              <div *ngIf="group.questionList.length >= 2">
+                <li class="text-muted" style="margin: 0; padding: 0"
+                    *ngFor="let word of group.questionList.slice(0,2)">{{word.question}}</li>
+              </div>
+
+              <div *ngIf="group.questionList.length < 2">
+                <li class="text-muted" style="margin: 0; padding: 0"
+                    *ngFor="let word of group.questionList">{{word.question}}</li>
+              </div>
+              <li style="list-style-type: none;">
+                &bull;&bull;&bull;
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminListGroupComponent } from './admin-list-group.component';
+import { UserLuckyLukeComponent } from './user-lucky-luke.component';
 
-describe('AdminListGroupComponent', () => {
-  let component: AdminListGroupComponent;
-  let fixture: ComponentFixture<AdminListGroupComponent>;
+describe('UserLuckyLukeComponent', () => {
+  let component: UserLuckyLukeComponent;
+  let fixture: ComponentFixture<UserLuckyLukeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminListGroupComponent ]
+      declarations: [ UserLuckyLukeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminListGroupComponent);
+    fixture = TestBed.createComponent(UserLuckyLukeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
