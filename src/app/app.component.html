@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container justify-content-between">
+    <a class="navbar-brand ms-3" routerLink="/">
+      <img src="assets/clover.png" width="40" height="40" class="d-inline-block align-top" alt="">
+      Anasayfa
+    </a>
+
+    <ul class="navbar-nav me-3">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="admin-login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

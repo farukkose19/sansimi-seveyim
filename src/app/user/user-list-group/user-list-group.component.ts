@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {Group} from "../../model/Group";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {Observable} from "rxjs";
-import {Group} from "../model/Group";
 
 @Component({
-  selector: 'app-group-list',
-  templateUrl: './group-list.component.html',
-  styleUrls: ['./group-list.component.css']
+  selector: 'app-user-list-group',
+  templateUrl: './user-list-group.component.html',
+  styleUrls: ['./user-list-group.component.css']
 })
-export class GroupListComponent implements OnInit {
+export class UserListGroupComponent implements OnInit {
 
-  data: Group[] = [];
+  groupList: Group[] = [];
 
   constructor(
     private firestore: AngularFirestore
@@ -18,9 +17,7 @@ export class GroupListComponent implements OnInit {
 
   ngOnInit(): void {
     this.firestore.collection('/groupList').valueChanges().subscribe((res: any[]) => {
-      this.data = res;
-      console.log(res);
+      this.groupList = res;
     })
   }
-
 }
