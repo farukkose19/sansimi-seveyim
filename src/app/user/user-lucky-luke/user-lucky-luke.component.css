@@ -19,7 +19,7 @@
 
 .blob {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-  transform: scale(1);
+  transform: scale(2);
   animation: pulse 1s infinite;
 }
 
