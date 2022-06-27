@@ -19,7 +19,8 @@
                   [routerLink]="'admin-add-group/' + group.id">
             <fa-icon class="fa" [icon]="faPen"></fa-icon>
           </button>
-          <button class="btn" style="padding-right: 0.4rem; padding-left: 0.4rem">
+          <button class="btn" style="padding-right: 0.4rem; padding-left: 0.4rem"
+          (click)="delete(group.id)">
             <fa-icon class="fa" [icon]="faTrashCan"></fa-icon>
           </button>
         </div>

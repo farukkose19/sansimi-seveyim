@@ -12,6 +12,7 @@ import {AuthService} from "../../service/auth.service";
 export class UserListGroupComponent implements OnInit {
 
   groupList: Group[] = [];
+  collectionName = 'groupList';
   faCirclePlus = faCirclePlus;
   faEllipsisVertical = faEllipsisVertical;
   faTrashCan = faTrashCan;
@@ -24,9 +25,17 @@ export class UserListGroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.initAuthListener().subscribe(user => {
-      this.firestore.collection('/groupList', ref => ref.where('userId', '==', user.email)).valueChanges().subscribe((res: any[]) => {
+      this.firestore.collection(this.collectionName, ref => ref.where('userId', '==', user.email)).valueChanges().subscribe((res: any[]) => {
         this.groupList = res;
       })
     });
+  }
+
+  delete(id: string) {
+    if (confirm('Silmek istediğinize emin misiniz?')) {
+      this.firestore.collection(this.collectionName).doc(id).delete().then(res => {
+        alert('Silindi.');
+      });
+    }
   }
 }
