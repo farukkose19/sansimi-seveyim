@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', component: UserListGroupComponent, canActivate: [LoginGuard] },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'admin-add-group', component: AdminAddGroupComponent, canActivate: [LoginGuard] },
+  { path: 'admin-add-group/:id', component: AdminAddGroupComponent, canActivate: [LoginGuard] },
   { path: 'user-lucky-luke/:id', component: UserLuckyLukeComponent, canActivate: [LoginGuard] },
 ];
 

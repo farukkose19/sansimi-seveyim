@@ -11,8 +11,21 @@
 <div class="mt-5" style="position: relative">
   <div class="row">
     <div *ngFor="let group of groupList" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4">
-      <div class="card shadow rounded" [routerLink]="'user-lucky-luke/' + group.id">
-        <div class="card-body">
+      <div class="card shadow rounded"
+      style="position: relative; z-index: 1">
+
+        <div style="position: absolute; right: 0; top: 0; z-index: 999">
+          <button class="btn" style="padding-right: 0.4rem; padding-left: 0.4rem"
+                  [routerLink]="'admin-add-group/' + group.id">
+            <fa-icon class="fa" [icon]="faPen"></fa-icon>
+          </button>
+          <button class="btn" style="padding-right: 0.4rem; padding-left: 0.4rem">
+            <fa-icon class="fa" [icon]="faTrashCan"></fa-icon>
+          </button>
+        </div>
+
+
+        <div class="card-body" [routerLink]="'user-lucky-luke/' + group.id">
           <h5 class="card-title">{{ group.groupName }}</h5>
           <div class="card-subtitle mb-3 text-muted" style="font-size: 0.8em; width: 100%;">
             <span style="float: left">
