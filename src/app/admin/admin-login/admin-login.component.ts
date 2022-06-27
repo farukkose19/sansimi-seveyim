@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+import { GoogleAuthProvider } from 'firebase/auth';
+import {Observable, tap} from "rxjs";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-admin-login',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  login() {
+    this.authService.googleAuth()
   }
-
 }

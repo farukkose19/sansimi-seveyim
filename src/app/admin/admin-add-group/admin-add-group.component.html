@@ -1,1 +1,33 @@
-<p>admin-add-group works!</p>
+<div class="my-5">
+  <form (ngSubmit)="save()">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="questionName">Sınav Adı</label>
+          <input type="text" class="form-control" id="questionName" [(ngModel)]="groupName"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col-6" *ngFor="let question of questionList; let i = index">
+        <div class="form-group">
+          <label for="{{question.question}}">Soru {{i + 1}}</label>
+          <input [(ngModel)]="question.question" type="text" class="form-control"
+                 id="{{question.question}}" (ngModelChange)="checkList()" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="redisplay"
+             [ngModelOptions]="{standalone: true}">
+      <label class="form-check-label" for="exampleCheck1">Görüntülenen soru tekrar sorulsun mu?</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary my-5 w-100">Kaydet</button>
+  </form>
+
+
+</div>

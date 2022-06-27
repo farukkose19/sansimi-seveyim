@@ -1,6 +1,6 @@
 export class Question {
   question: string;
-  isViewed: boolean;
+  isViewed: boolean = false;
 
   constructor(question: string, isViewed: boolean) {
     this.question = question;

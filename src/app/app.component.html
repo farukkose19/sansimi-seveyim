@@ -11,10 +11,16 @@
 
     <ul class="navbar-nav me-3">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="admin-login">
-            <span style="color: white">
+        <a class="nav-link" (click)="logout()" *ngIf="isUserLoggedIn">
+          <span style="color: white">
+            Logout
+          </span>
+        </a>
+
+        <a class="nav-link" routerLink="admin-login" *ngIf="!isUserLoggedIn">
+          <span style="color: white">
               Login
-            </span>
+          </span>
         </a>
       </li>
     </ul>

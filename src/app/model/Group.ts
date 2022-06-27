@@ -8,13 +8,15 @@ export class Group {
   groupName: string;
   userId: string;
   questionList: Question[];
+  redisplay: boolean;
 
 
-  constructor(id: string, createdDate: string, groupName: string, userId: string, questionList: Question[]) {
+  constructor(id: string, createdDate: string, groupName: string, userId: string, questionList: Question[], redisplay: boolean) {
     this.id = id;
     this.createdDate = createdDate;
     this.groupName = groupName;
     this.userId = userId;
     this.questionList = questionList;
+    this.redisplay = redisplay;
   }
 }

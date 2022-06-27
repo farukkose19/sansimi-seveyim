@@ -1,0 +1,41 @@
+.btn:hover {
+  color: white !important;
+}
+
+.btn:disabled{
+  color: black !important;
+  background-color: white;
+}
+
+.btn:active {
+  color: white !important;
+}
+
+.btn{
+  background-color: #26402d;
+  color: white !important;
+}
+
+
+.blob {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

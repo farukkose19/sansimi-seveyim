@@ -1,14 +1,26 @@
-<div style="position: absolute; right: 0; top: 0;">
-  Soru Sayısı: {{group?.questionList?.length}}
+<div *ngIf="getQuestionLength() > 0">
+  <div style="position: absolute; right: 10px; top: 0;">
+    Kalan Soru Sayısı: {{getQuestionLength()}}
+  </div>
+
+  <div class="row align-items-center mt-5 justify-content-center">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6
+    d-flex justify-content-center mt-5 bg-white shadow p-5 rounded">
+      <span [ngClass]=" isEffect ? 'blob' : ''">
+        {{randomQuestion.question ? randomQuestion.question : 'Lütfen butona tıklayınız'}}
+      </span>
+
+    </div>
+    <div class="col-12 d-flex justify-content-center mt-5">
+      <button type="button" class="btn dark-green-background"
+              onclick="this.blur();" (click)=" getRandomQuestion();"
+              [disabled]="getQuestionLength() == 0 || isEffect">Şansımı Seveyim</button>
+    </div>
+  </div>
 </div>
 
-<div class="row align-items-center mt-5 justify-content-center">
-  <div class="col-6 d-flex justify-content-center mt-5 bg-white shadow p-5">
-    {{randomQuestion.question}}
-  </div>
-  <div class="col-12 d-flex justify-content-center mt-5">
-    <button type="button" class="btn dark-green-background" style="color: white"
-            onclick="this.blur();" (click)=" getRandomQuestion();">Şansımı Seveyim</button>
-  </div>
+<div class="d-flex mt-5 justify-content-center"
+  *ngIf="getQuestionLength() == 0">
+  Tüm sorular gösterilmiştir.
 </div>
 
