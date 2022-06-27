@@ -1,0 +1,21 @@
+.btn.abc:hover {
+  color: white !important;
+}
+
+.btn.abc:disabled{
+  color: black !important;
+  background-color: white;
+}
+
+.btn.abc:active {
+  color: white !important;
+}
+
+.btn.abc{
+  background-color: #26402d;
+  color: white !important;
+}
+
+.abc {
+
+}
