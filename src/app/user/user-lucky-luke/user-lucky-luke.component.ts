@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Group} from "../../model/Group";
 import {Question} from "../../model/Question";
+import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-user-lucky-luke',
@@ -12,10 +14,11 @@ import {Question} from "../../model/Question";
 export class UserLuckyLukeComponent implements OnInit {
 
   id: string = '';
-  group: any | Group;
-  randomQuestion: Question = new Question('', false);
+  group: Group = new Group();
+  randomQuestion: Question = new Question();
   collectionName = 'groupList';
   isEffect = false;
+  faArrowsRotate = faArrowsRotate;
 
   constructor(
     private route: ActivatedRoute,
@@ -60,8 +63,7 @@ export class UserLuckyLukeComponent implements OnInit {
           }
           return item;
         })
-        this.update(this.group.id, this.group).then(res => {
-        });
+        this.update(this.group.id, this.group).then(res => {});
       }
     }
   }
@@ -92,5 +94,15 @@ export class UserLuckyLukeComponent implements OnInit {
     setTimeout(() => {
       this.isEffect = false;
     }, 3000);
+  }
+
+  refresh() {
+    this.group.questionList = this.group.questionList.map(item => {
+      item.isViewed = false;
+      return item;
+    })
+    this.update(this.group.id, this.group).then(res => {
+      this.randomQuestion = new Question();
+    });
   }
 }
