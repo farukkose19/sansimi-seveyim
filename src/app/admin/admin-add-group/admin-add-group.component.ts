@@ -70,7 +70,7 @@ export class AdminAddGroupComponent implements OnInit {
   save() {
     const id = this.firestore.createId();
     const group: Group = new Group(id, '' + new Date().getTime(), this.group.groupName, this.group.userId,
-      this.group.questionList, this.group.redisplay);
+      this.group.questionList, this.group.redisplay, this.group.counter * 60 * 1000);
     try {
       this.firestore.collection(this.collectionName).doc(id).set(
         JSON.parse(JSON.stringify(group))

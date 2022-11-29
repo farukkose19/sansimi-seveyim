@@ -1,12 +1,16 @@
-<div style="position: absolute; right: 10px; top: 0;">
-  Kalan Soru Sayısı: {{getQuestionLength()}}
-</div>
-
 <div style="position: absolute; left: 10px; top: 0;" *ngIf="!group?.redisplay">
   <button class="btn" style="color: white" onclick="this.blur();" (click)="refresh()">
     <fa-icon class="fa-xl" [icon]="faArrowsRotate"></fa-icon>
     Yenile
   </button>
+</div>
+
+<div class="mt-5" style="text-align: center; font-size: 4em" [style.color]="getColor()">
+  {{minutes < 10 ? '0' + minutes : minutes}} : {{seconds < 10 ? '0' + seconds : seconds}}
+</div>
+
+<div style="position: absolute; right: 10px; top: 0;">
+  Kalan Soru Sayısı: {{getQuestionLength()}}
 </div>
 
 
