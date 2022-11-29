@@ -1,23 +1,26 @@
-<div style="position: absolute; left: 10px; top: 0;" *ngIf="!group?.redisplay">
-  <button class="btn" style="color: white" onclick="this.blur();" (click)="refresh()">
-    <fa-icon class="fa-xl" [icon]="faArrowsRotate"></fa-icon>
-    Yenile
-  </button>
+<div style="display: flex; margin-top: 20px">
+  <div style="position: absolute; left: 10px; top: 0;" *ngIf="!group?.redisplay">
+    <button class="btn" style="color: white" onclick="this.blur();" (click)="refresh()">
+      <fa-icon class="fa-xl" [icon]="faArrowsRotate"></fa-icon>
+      Yenile
+    </button>
+  </div>
+
+  <div style="position: absolute; right: 10px; top: 0;">
+    Kalan Soru Sayısı: {{getQuestionLength()}}
+  </div>
 </div>
 
-<div class="mt-5" style="text-align: center; font-size: 4em" [style.color]="getColor()">
-  {{minutes < 10 ? '0' + minutes : minutes}} : {{seconds < 10 ? '0' + seconds : seconds}}
+<div style="display: block; width: 100%;">
+  <div style="text-align: center; font-size: 4em; margin-top: 50px" [style.color]="getColor()">
+    {{minutes < 10 ? '0' + minutes : minutes}} : {{seconds < 10 ? '0' + seconds : seconds}}
+  </div>
 </div>
 
-<div style="position: absolute; right: 10px; top: 0;">
-  Kalan Soru Sayısı: {{getQuestionLength()}}
-</div>
-
-
-<div class="row align-items-center mt-5 justify-content-center ">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6
-    d-flex justify-content-center mt-5  p-4">
-      <span class="p-2" [ngClass]=" isEffect ? 'blob' : ''" style="font-weight: bold; font-size: 1.5em">
+<div class="row align-items-center mt-3 justify-content-center ">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8
+    d-flex justify-content-center mt-5 p-4">
+      <span class="p-2" [ngClass]=" isEffect ? 'blob' : ''" style="font-weight: bold; font-size: 2em">
         {{randomQuestion.question ? randomQuestion.question :
         (getQuestionLength() > 0 ? 'Lütfen aşağıdaki butona tıklayınız' :
           'Tüm soruları görüntülediniz. Soldaki buton ile tekrarlayabilirsiniz.')}}
@@ -27,7 +30,8 @@
   <div class="col-12 d-flex justify-content-center mt-5">
     <button type="button" class="btn dark-green-background" *ngIf="getQuestionLength() > 0"
             onclick="this.blur();" (click)=" getRandomQuestion();"
-            [disabled]="getQuestionLength() == 0 || isEffect">Şansımı Seveyim
+            [disabled]="getQuestionLength() == 0 || isEffect">
+      Şansımı Seveyim
     </button>
   </div>
 </div>

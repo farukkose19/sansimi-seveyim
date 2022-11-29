@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Group} from "../../model/Group";
 import {Question} from "../../model/Question";
-import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+import {faArrowsRotate} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -40,8 +40,8 @@ export class UserLuckyLukeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-        this.stopTimer();
-    }
+    this.stopTimer();
+  }
 
   ngOnInit(): void {
     this.firestore.collection(this.collectionName, ref => ref.where('id', '==', this.id)).valueChanges().subscribe((res: any[]) => {
@@ -76,7 +76,8 @@ export class UserLuckyLukeComponent implements OnInit, OnDestroy {
           }
           return item;
         })
-        this.update(this.group.id, this.group).then(res => {});
+        this.update(this.group.id, this.group).then(res => {
+        });
       }
     }
   }
@@ -138,7 +139,8 @@ export class UserLuckyLukeComponent implements OnInit, OnDestroy {
   stopTimer() {
     try {
       clearInterval(this.interval);
-    } catch (e) {}
+    } catch (e) {
+    }
     this.initialTimer();
   }
 
