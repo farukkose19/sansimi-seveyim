@@ -19,6 +19,6 @@ export class Group {
     this.userId = userId ? userId : '';
     this.questionList = questionList ? questionList : [];
     this.redisplay = redisplay ? redisplay : false;
-    this.counter = counter ? counter : 5 * 60 * 1000;
+    this.counter = counter ? counter : 5;
   }
 }
