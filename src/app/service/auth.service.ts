@@ -40,7 +40,6 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
         this.logService.setLog({
           email: result.user?.email,
           logMessage: 'login',
