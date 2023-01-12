@@ -28,14 +28,9 @@ export class UserLuckyLukeComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private firestore: AngularFirestore,
-    private cdRef: ChangeDetectorRef,
   ) {
     route.params.subscribe((params: any) => {
-      if (params.id) {
-        this.id = params.id;
-      } else {
-        this.router.navigate(['/admin-login']);
-      }
+      this.id = params.id;
     });
   }
 
@@ -127,7 +122,7 @@ export class UserLuckyLukeComponent implements OnInit, OnDestroy {
     this.interval = setInterval(() => {
       this.minutes = Math.floor((this.counterTime % (1000 * 60 * 60)) / (1000 * 60));
       this.seconds = Math.floor((this.counterTime % (1000 * 60)) / 1000);
-      if (this.counterTime == 0) {
+      if (this.counterTime <= 0) {
         this.playSound();
         clearInterval(this.interval);
       } else {

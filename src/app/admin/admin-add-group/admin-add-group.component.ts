@@ -33,6 +33,7 @@ export class AdminAddGroupComponent implements OnInit {
     this.firestore.collection(this.collectionName, ref => ref.where('id', '==', this.id)).valueChanges().subscribe((res: any[]) => {
       if (res.length > 0) {
         this.group = res[0];
+        this.group.counter = this.group.counter / 60 / 1000;
         this.group.questionList.push(new Question('', false));
       }
     });
@@ -87,6 +88,7 @@ export class AdminAddGroupComponent implements OnInit {
   }
 
   update(id: string, data: any): Promise<void> {
+    this.group.counter = this.group.counter * 60 * 1000;
     return this.firestore.collection(this.collectionName).doc(id).update(
       JSON.parse(JSON.stringify(data))
     );
